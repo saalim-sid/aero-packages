@@ -1,0 +1,37 @@
+import type {CmsComponent} from '@platform/core/types/cms'
+import {withCommon} from '@platform/builder/fields'
+import type {ElementDef} from '@platform/core/types/layout'
+
+/** A website's own block type (hero, pillars...): its settings are the block's content. */
+export const blockElement: ElementDef = {
+  type: 'block',
+  name: 'Website block',
+  category: 'Website blocks',
+  icon: 'LayoutTemplate',
+  hidden: true,
+  fields: [],
+  render: ({node, settings, attrs, renderBlock}) => (
+    <div {...attrs} className={`${attrs.className} lb-el`}>
+      {renderBlock?.({...settings, _id: node.id} as CmsComponent)}
+    </div>
+  )
+}
+
+/** A component from the Components list, linked: editing it there updates every page using it. */
+export const componentElement: ElementDef = {
+  type: 'component',
+  name: 'Component',
+  category: 'Website blocks',
+  icon: 'LayoutTemplate',
+  hidden: true,
+  description: 'Its content is edited in Components and shows the same on every page using it.',
+  fields: withCommon(),
+  render: ({node, settings, attrs, renderBlock, editing}) =>
+    settings.content || editing ? (
+      <div {...attrs} className={`${attrs.className} lb-el`}>
+        {settings.content
+          ? renderBlock?.({...(settings.content as CmsComponent), _id: node.id})
+          : 'This component was deleted.'}
+      </div>
+    ) : null
+}

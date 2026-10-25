@@ -1,0 +1,16 @@
+{
+  "id": "charity-registration",
+  "export": "charityRegistration",
+  "version": "0.1.0",
+  "files": {
+    "src/app/causes/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/cause'\n",
+    "src/app/causes/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/causes'\n",
+    "src/app/charities/[id]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/charity'\n",
+    "src/app/charities/nominate/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('charity-registration')\n",
+    "src/app/charities/nominate/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/nominate'\n",
+    "src/app/charities/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/charities'\n",
+    "src/app/charities/register/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('charity-registration')\n",
+    "src/app/charities/register/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/register'\n",
+    "src/app/charities/search/page.tsx": "export {default, generateMetadata} from '@platform/plugins/charity-registration/pages/search'\n"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "id": "learn",
+  "export": "learn",
+  "version": "0.1.0",
+  "files": {
+    "src/app/learn/library/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/learn/pages/library-section'\n",
+    "src/app/learn/library/page.tsx": "export {default, generateMetadata} from '@platform/plugins/learn/pages/library'\n",
+    "src/app/learn/page.tsx": "export {default, generateMetadata} from '@platform/plugins/learn/pages/learn'\n",
+    "src/app/learn/quiz/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/learn/pages/quiz'\n",
+    "src/app/learn/quizzes/page.tsx": "export {default, generateMetadata} from '@platform/plugins/learn/pages/quizzes'\n"
+  }
+}

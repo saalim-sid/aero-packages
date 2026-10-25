@@ -1,0 +1,10 @@
+{
+  "id": "shop",
+  "export": "shop",
+  "version": "0.1.0",
+  "files": {
+    "src/app/go/[slug]/route.ts": "export {GET} from '@platform/plugins/shop/pages/go'\n",
+    "src/app/shop/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('shop')\n",
+    "src/app/shop/page.tsx": "export {default, generateMetadata} from '@platform/plugins/shop/pages/shop'\n"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "blog",
+  "export": "blog",
+  "version": "0.1.0",
+  "files": {
+    "src/app/blog/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/blog/pages/post'\n",
+    "src/app/blog/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('blog')\n",
+    "src/app/blog/page.tsx": "export {default, generateMetadata} from '@platform/plugins/blog/pages/blog'\n",
+    "src/app/blog/rss.xml/route.ts": "export {GET} from '@platform/plugins/blog/pages/rss'\nexport const revalidate = 3600\n"
+  }
+}

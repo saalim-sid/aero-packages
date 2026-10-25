@@ -1,0 +1,9 @@
+{
+  "id": "campaigns",
+  "export": "campaigns",
+  "version": "0.1.0",
+  "files": {
+    "src/app/campaigns/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/campaigns/pages/campaign'\n",
+    "src/app/campaigns/page.tsx": "export {default, generateMetadata} from '@platform/plugins/campaigns/pages/campaigns'\n"
+  }
+}

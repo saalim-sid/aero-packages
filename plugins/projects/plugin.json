@@ -1,0 +1,9 @@
+{
+  "id": "projects",
+  "export": "projects",
+  "version": "0.1.0",
+  "files": {
+    "src/app/projects/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/projects/pages/project'\n",
+    "src/app/projects/page.tsx": "export {default, generateMetadata} from '@platform/plugins/projects/pages/projects'\n"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@aero/platform",
+  "version": "0.0.0",
+  "description": "Shared frontend platform: core, UI, routes, plugins, blocks and themes for every site on the CMS.",
+  "peerDependencies": {
+    "@chakra-ui/react": "^3.37.0",
+    "@emotion/react": "^11.14.0",
+    "next": "^16.3.8",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "dependencies": {
+    "lucide-react": "^0.510.0"
+  },
+  "files": [
+    "core",
+    "ui",
+    "routes",
+    "plugins",
+    "README.md",
+    "builder",
+    "themes"
+  ],
+  "license": "MIT"
+}

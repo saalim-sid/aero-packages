@@ -1,0 +1,9 @@
+{
+  "id": "pledges",
+  "export": "pledges",
+  "version": "0.1.0",
+  "files": {
+    "src/app/pledge/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('pledges')\n",
+    "src/app/pledge/page.tsx": "export {default, generateMetadata} from '@platform/plugins/pledges/pages/pledge'\n"
+  }
+}

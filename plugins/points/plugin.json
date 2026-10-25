@@ -1,0 +1,9 @@
+{
+  "id": "points",
+  "export": "points",
+  "version": "0.1.0",
+  "files": {
+    "src/app/hall-of-fame/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('points')\n",
+    "src/app/hall-of-fame/page.tsx": "export {default, generateMetadata} from '@platform/plugins/points/pages/hall-of-fame'\n"
+  }
+}

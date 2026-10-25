@@ -1,0 +1,11 @@
+{
+  "id": "voting",
+  "export": "voting",
+  "version": "0.1.0",
+  "files": {
+    "src/app/donations-so-far/page.tsx": "export {default, generateMetadata} from '@platform/plugins/voting/pages/donations'\n",
+    "src/app/vote/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('voting')\n",
+    "src/app/vote/page.tsx": "export {default, generateMetadata} from '@platform/plugins/voting/pages/vote'\n",
+    "src/app/vote/standings/page.tsx": "export {default, generateMetadata} from '@platform/plugins/voting/pages/standings'\n"
+  }
+}

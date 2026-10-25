@@ -1,0 +1,18 @@
+{
+  "id": "commerce",
+  "export": "commerce",
+  "version": "0.1.0",
+  "files": {
+    "src/app/cart/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('commerce')\n",
+    "src/app/cart/page.tsx": "export {default, metadata} from '@platform/plugins/commerce/pages/cart'\n",
+    "src/app/checkout/complete/page.tsx": "export {default, metadata} from '@platform/plugins/commerce/pages/checkout-complete'\n",
+    "src/app/checkout/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('commerce')\n",
+    "src/app/checkout/page.tsx": "export {default, metadata} from '@platform/plugins/commerce/pages/checkout'\n",
+    "src/app/orders/[id]/page.tsx": "export {default, metadata} from '@platform/plugins/commerce/pages/order'\n",
+    "src/app/orders/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('commerce')\n",
+    "src/app/orders/page.tsx": "export {default, metadata} from '@platform/plugins/commerce/pages/orders'\n",
+    "src/app/store/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/commerce/pages/product'\n",
+    "src/app/store/layout.tsx": "import {pluginLayout} from '@platform/core/plugins'\n\nexport default pluginLayout('commerce')\n",
+    "src/app/store/page.tsx": "export {default, generateMetadata} from '@platform/plugins/commerce/pages/store'\n"
+  }
+}

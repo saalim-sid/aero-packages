@@ -1,0 +1,9 @@
+{
+  "id": "events",
+  "export": "events",
+  "version": "0.1.0",
+  "files": {
+    "src/app/events/[slug]/page.tsx": "export {default, generateMetadata} from '@platform/plugins/events/pages/event'\n",
+    "src/app/events/page.tsx": "export {default, generateMetadata} from '@platform/plugins/events/pages/events'\n"
+  }
+}
