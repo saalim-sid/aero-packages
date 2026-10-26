@@ -1,5 +1,4 @@
 import {CMS_ENVIRONMENT} from '@platform/core/cms-auth'
-import {themes} from '@platform/themes'
 import type {
   CmsCollectionPage,
   CmsComponent,
@@ -10,6 +9,7 @@ import type {
   OrgConfig,
   SocialLink
 } from '@platform/core/types/cms'
+import {themes} from '@platform/themes'
 
 export function resolveCmsImageUrl(image?: any, fallback?: string): string | undefined {
   let candidate: string | undefined = undefined
@@ -68,15 +68,12 @@ export function resolveCmsImageUrl(image?: any, fallback?: string): string | und
 const CMS_API_URL = process.env.NEXT_PUBLIC_CMS_API_URL || ''
 const CMS_API_KEY = process.env.CMS_API_KEY || ''
 
-// Said once, when a website actually fetches: the CMS imports this file only for image links.
 let warned = false
 
 export async function cmsGet(url: string, init: RequestInit, attempt = 1): Promise<Response> {
   if (!warned && typeof window === 'undefined' && (!CMS_API_URL || !CMS_API_KEY)) {
     warned = true
-    console.error(
-      '[CMS Client] NEXT_PUBLIC_CMS_API_URL or CMS_API_KEY is not set: every page will be empty (404).'
-    )
+    console.error('[CMS Client] KEY is not set.')
   }
   try {
     const res = await fetch(url, {...init, signal: init.signal ?? AbortSignal.timeout(10_000)})

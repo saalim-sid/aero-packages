@@ -1,7 +1,6 @@
 {
-  "name": "@aero/platform",
-  "version": "0.0.0",
-  "description": "Shared frontend platform: core, UI, routes, plugins, blocks and themes for every site on the CMS.",
+  "name": "@aeroce/platform",
+  "version": "0.1.3",
   "peerDependencies": {
     "@chakra-ui/react": "^3.37.0",
     "@emotion/react": "^11.14.0",

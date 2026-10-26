@@ -3,9 +3,9 @@
 import {useEditable} from '@platform/builder/editable-context'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {T} from '@platform/themes/legal-finance/ui'
-import type {FahaaPageHeaderData} from '@platform/core/types/themes/legal-finance'
+import type {PageHeaderData} from '@platform/core/types/theme-ui'
 
-export function FahaaPageHeader({data, mb = 8}: {data: FahaaPageHeaderData; mb?: number}) {
+export function PageHeading({data, mb = 8}: {data: PageHeaderData; mb?: number}) {
   const ed = useEditable()
   return (
     <MotionBox

@@ -3,7 +3,7 @@ import type {SiteTheme} from '@platform/core/types/theme'
 const scale = (o: Record<number, string>) =>
   Object.fromEntries(Object.entries(o).map(([k, v]) => [k, {value: v}]))
 
-/** Wisdom Trust: forest greens on warm cream, Fraunces headings and Outfit body text. */
+/** Forest greens on warm cream, Fraunces headings and Outfit body text. */
 export const forestTheme: SiteTheme = {
   cssVarsPrefix: 'wt',
   fonts: {

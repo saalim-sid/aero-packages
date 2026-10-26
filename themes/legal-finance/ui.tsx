@@ -1,19 +1,19 @@
 'use client'
 
-import {ICON_PATHS} from '@platform/themes/legal-finance/icon-paths'
-import {blueButton} from '@platform/themes/blue-recipes'
-import type {
-  FahaaBreakpoints,
-  FahaaButtonProps,
-  FahaaColProps,
-  FahaaIconProps,
-  FahaaTextProps
-} from '@platform/core/types/themes/legal-finance'
 import {Box, chakra, type HTMLChakraProps} from '@chakra-ui/react'
+import type {
+  Breakpoint,
+  ButtonProps,
+  ColProps,
+  IconProps,
+  TextProps
+} from '@platform/core/types/theme-ui'
+import {blueButton} from '@platform/themes/blue-recipes'
+import {ICON_PATHS} from '@platform/themes/legal-finance/icon-paths'
 import NextLink from 'next/link'
 import {createContext, forwardRef, useContext, type ReactNode} from 'react'
 
-const TAG: Record<FahaaTextProps['variant'], string> = {
+const TAG: Record<TextProps['variant'], string> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -27,13 +27,7 @@ const TAG: Record<FahaaTextProps['variant'], string> = {
   caption: 'span'
 }
 
-/** Text in one of the theme's text styles, on the same element MUI used for that variant. */
-export function T({
-  variant,
-  as,
-  children,
-  ...rest
-}: FahaaTextProps & Omit<HTMLChakraProps<'p'>, 'as'>) {
+export function T({variant, as, children, ...rest}: TextProps & Omit<HTMLChakraProps<'p'>, 'as'>) {
   return (
     <Box as={(as || TAG[variant]) as 'p'} m="0" fontFamily="body" textStyle={variant} {...rest}>
       {children}
@@ -41,8 +35,7 @@ export function T({
   )
 }
 
-/** A Material icon. Without a size it takes --icon-size (set by buttons), else the 24px default. */
-export function Icon({name, size, ...rest}: FahaaIconProps & HTMLChakraProps<'svg'>) {
+export function Icon({name, size, ...rest}: IconProps & HTMLChakraProps<'svg'>) {
   return (
     <chakra.svg
       viewBox="0 0 24 24"
@@ -62,12 +55,11 @@ export function Icon({name, size, ...rest}: FahaaIconProps & HTMLChakraProps<'sv
   )
 }
 
-/** MUI Container: 16px side padding, 24px from the sm breakpoint, capped at the breakpoint width. */
 export function Container({
   size = 'lg',
   children,
   ...rest
-}: {size?: FahaaBreakpoints; children: ReactNode} & HTMLChakraProps<'div'>) {
+}: {size?: Breakpoint; children: ReactNode} & HTMLChakraProps<'div'>) {
   return (
     <Box
       w="100%"
@@ -83,7 +75,6 @@ export function Container({
 
 const Gutter = createContext('0')
 
-/** MUI Grid container: a negative margin with padded columns, so column widths match the original exactly. */
 export function Row({
   gutter,
   children,
@@ -115,7 +106,7 @@ export function Col({
   lg,
   children,
   ...rest
-}: FahaaColProps & Omit<HTMLChakraProps<'div'>, 'xs' | 'sm' | 'md' | 'lg'>) {
+}: ColProps & Omit<HTMLChakraProps<'div'>, 'xs' | 'sm' | 'md' | 'lg'>) {
   const space = useContext(Gutter)
   const w = {
     base: width(xs),
@@ -139,7 +130,7 @@ const ButtonLink = chakra(NextLink, blueButton)
 
 export const Button = forwardRef<
   HTMLElement,
-  FahaaButtonProps & Omit<HTMLChakraProps<'button'>, 'type'>
+  ButtonProps & Omit<HTMLChakraProps<'button'>, 'type'>
 >(function Button(
   {variant, size, href, startIcon, endIcon, fullWidth, type = 'button', children, ...rest},
   ref

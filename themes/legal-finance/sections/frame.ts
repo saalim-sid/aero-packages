@@ -1,7 +1,7 @@
-import type {SectionBase} from '@platform/core/types/sections'
-import type {FahaaIconName} from '@platform/core/types/themes/legal-finance'
-import {ICON_PATHS} from '@platform/themes/legal-finance/icon-paths'
 import type {BoxProps} from '@chakra-ui/react'
+import type {SectionBase} from '@platform/core/types/sections'
+import type {IconName} from '@platform/core/types/theme-ui'
+import {ICON_PATHS} from '@platform/themes/legal-finance/icon-paths'
 
 const BACKGROUND: Record<NonNullable<SectionBase['background']>, BoxProps> = {
   default: {bg: 'white'},
@@ -10,7 +10,6 @@ const BACKGROUND: Record<NonNullable<SectionBase['background']>, BoxProps> = {
   inverse: {bg: 'bg.inverse', color: 'fg.inverse'}
 }
 
-/** Root box of a section: its own look, then the editor's background, then padding per `spacing`. */
 export const frame = (c: SectionBase, own: BoxProps = {}, py = '16'): BoxProps => ({
   ...own,
   ...(c.background ? BACKGROUND[c.background] : {}),
@@ -18,5 +17,5 @@ export const frame = (c: SectionBase, own: BoxProps = {}, py = '16'): BoxProps =
   pb: c.spacing === 'top' || c.spacing === 'none' ? '0' : py
 })
 
-export const icon = (name: string | undefined, fallback: FahaaIconName): FahaaIconName =>
-  name && name in ICON_PATHS ? (name as FahaaIconName) : fallback
+export const icon = (name: string | undefined, fallback: IconName): IconName =>
+  name && name in ICON_PATHS ? (name as IconName) : fallback

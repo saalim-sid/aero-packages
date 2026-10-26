@@ -1,21 +1,18 @@
 'use client'
 
+import {Box} from '@chakra-ui/react'
 import {useEditable} from '@platform/builder/editable-context'
 import type {FormSection} from '@platform/core/types/sections'
-import type {
-  FahaaContactFormData,
-  FahaaQueryFormData
-} from '@platform/core/types/themes/legal-finance'
-import {FahaaContactForm} from '@platform/themes/legal-finance/ContactForm'
+import type {ContactFormData, QuestionFormData} from '@platform/core/types/theme-ui'
+import {ContactForm} from '@platform/themes/legal-finance/ContactForm'
 import {FaqList} from '@platform/themes/legal-finance/FaqList'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
-import {FahaaQueryForm} from '@platform/themes/legal-finance/QueryForm'
+import {QuestionForm} from '@platform/themes/legal-finance/QueryForm'
 import {frame} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {Col, Container, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box} from '@chakra-ui/react'
 
-const contactForm = (f: FormSection): FahaaContactFormData => ({
+const contactForm = (f: FormSection): ContactFormData => ({
   title: f.formTitle || '',
   subjects: f.choices || [],
   submitLabel: f.submitLabel || 'Send Message',
@@ -24,7 +21,7 @@ const contactForm = (f: FormSection): FahaaContactFormData => ({
   successMessage: f.successMessage || ''
 })
 
-const queryForm = (f: FormSection): FahaaQueryFormData => ({
+const queryForm = (f: FormSection): QuestionFormData => ({
   title: f.formTitle || '',
   typeLabel: f.choiceLabel || '',
   types: f.choices || [],
@@ -35,12 +32,11 @@ const queryForm = (f: FormSection): FahaaQueryFormData => ({
   successMessage: f.successMessage || ''
 })
 
-/** The form itself: contact (name, email, phone, subject, message) or question (type and question). */
 export function TheForm({f}: {f: FormSection}) {
   return f.variant === 'question' ? (
-    <FahaaQueryForm form={queryForm(f)} />
+    <QuestionForm form={queryForm(f)} />
   ) : (
-    <FahaaContactForm form={contactForm(f)} />
+    <ContactForm form={contactForm(f)} />
   )
 }
 

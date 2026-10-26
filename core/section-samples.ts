@@ -1,7 +1,5 @@
 import type {SectionBase, SectionMap, SectionType} from '@platform/core/types/sections'
 
-// Starting content for a new section in the page builder; its keys are also the section's editable fields.
-
 const base = (title: string, lede: string): SectionBase => ({
   heading: 'section',
   eyebrow: '',
@@ -241,7 +239,6 @@ export const sectionSamples: {[K in SectionType]: SectionMap[K]} = {
   }
 }
 
-/** Fixed choices for section fields, shown as dropdowns. `variant` depends on the section. */
 export const sectionChoices: Record<string, string[]> = {
   heading: ['page', 'section', 'sub'],
   spacing: ['both', 'top', 'bottom', 'none'],

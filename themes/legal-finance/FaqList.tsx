@@ -1,10 +1,10 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {useEditable} from '@platform/builder/editable-context'
+import type {FaqItem} from '@platform/core/types/ui'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {Icon, T} from '@platform/themes/legal-finance/ui'
-import type {FaqItem} from '@platform/core/types/ui'
-import {Box, chakra} from '@chakra-ui/react'
 import {useState} from 'react'
 
 const CATEGORY_BG: Record<string, string> = {
@@ -13,7 +13,6 @@ const CATEGORY_BG: Record<string, string> = {
   General: 'success.light'
 }
 
-/** MUI-style accordion list: one answer open at a time, optional category badge per question. */
 export function FaqList({
   faqs,
   delay = 0.5,

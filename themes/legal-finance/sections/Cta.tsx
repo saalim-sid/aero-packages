@@ -1,12 +1,12 @@
 'use client'
 
+import {Box} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {CtaSection} from '@platform/core/types/sections'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {frame} from '@platform/themes/legal-finance/sections/frame'
 import {Button, Card, Container, Icon, T} from '@platform/themes/legal-finance/ui'
-import {Box} from '@chakra-ui/react'
 
 const inView = {
   initial: {opacity: 0, y: 30},
@@ -15,7 +15,6 @@ const inView = {
   transition: {duration: 0.6}
 }
 
-/** Grey rounded panel with up to two buttons (end of the services and detail pages). */
 export function CtaPanel({c, mt, path = ''}: {c: CtaSection; mt?: string; path?: string}) {
   const ed = useEditable()
   const f = (key: string) => (path ? `${path}.${key}` : key)
@@ -49,7 +48,6 @@ export function CtaPanel({c, mt, path = ''}: {c: CtaSection; mt?: string; path?:
   )
 }
 
-/** Contact card with phone, email and two buttons (detail page sidebar). */
 export function CtaCard({c, path = ''}: {c: CtaSection; path?: string}) {
   const ed = useEditable()
   const f = (key: string) => (path ? `${path}.${key}` : key)

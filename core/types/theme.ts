@@ -45,7 +45,6 @@ export type SectionComponents = {
   [K in SectionType]: ComponentType<{component: SectionMap[K] & {_id: string}}>
 }
 
-/** One choosable theme: its tokens, and for a full design every contract section. A new theme is one folder in themes/ plus one line in the registry. */
 export interface ThemeEntry {
   label: string
   category: string
@@ -61,6 +60,5 @@ export interface ThemeChrome {
 export interface ProviderProps {
   children: ReactNode
   hasSession?: boolean
-  /** A key of the themes registry, or null for the site's own theme. */
   theme?: string | null
 }

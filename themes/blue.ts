@@ -4,7 +4,7 @@ import {blueButton} from '@platform/themes/blue-recipes'
 const scale = (o: Record<string | number, string>) =>
   Object.fromEntries(Object.entries(o).map(([k, v]) => [k, {value: v}]))
 
-/** Fahaa Associates: clean blue and grey, Lato, MUI-like type scale and shadows. */
+/** Clean blue and grey, Lato, MUI-like type scale and shadows. */
 export const blueTheme: SiteTheme = {
   cssVarsPrefix: 'fa',
   fonts: {
@@ -211,7 +211,7 @@ export const blueTheme: SiteTheme = {
         },
         gradientText: {value: {bgImage: 'brand', bgClip: 'text', color: 'transparent'}}
       },
-      recipes: {fahaaButton: blueButton}
+      recipes: {themeButton: blueButton}
     },
     globalCss: {
       html: {

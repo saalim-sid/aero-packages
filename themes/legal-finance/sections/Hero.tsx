@@ -1,11 +1,11 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {HeroSection} from '@platform/core/types/sections'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {Button, Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box, chakra} from '@chakra-ui/react'
 import {motion} from 'framer-motion'
 
 const MotionT = motion.create(T)

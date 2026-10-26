@@ -1,8 +1,7 @@
 import {defineRecipe} from '@chakra-ui/react'
 
-/** The original site's MUI Button: no uppercase, 600 weight, 8px corners, no resting shadow. */
 export const blueButton = defineRecipe({
-  className: 'fahaa-button',
+  className: 'theme-button',
   base: {
     display: 'inline-flex',
     alignItems: 'center',

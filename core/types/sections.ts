@@ -62,8 +62,6 @@ export interface VideoItem {
   youtubeUrl?: string
 }
 
-// Theme contract: every theme renders every section below, so a site can switch theme without touching its content.
-
 export interface Link {
   label: string
   href: string

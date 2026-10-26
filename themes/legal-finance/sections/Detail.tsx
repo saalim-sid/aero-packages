@@ -1,5 +1,6 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {DetailSection} from '@platform/core/types/sections'
@@ -9,7 +10,6 @@ import {CtaCard, CtaPanel} from '@platform/themes/legal-finance/sections/Cta'
 import {frame, icon} from '@platform/themes/legal-finance/sections/frame'
 import {StepCards} from '@platform/themes/legal-finance/StepCards'
 import {Card, Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box, chakra} from '@chakra-ui/react'
 import NextLink from 'next/link'
 
 const inView = {
@@ -19,7 +19,6 @@ const inView = {
   transition: {duration: 0.6}
 }
 
-/** A service, product or programme page: intro, overview, checklist, steps, FAQs, a contact card and related links. */
 export function Detail({component: c}: {component: DetailSection}) {
   const ed = useEditable()
   const overview = c.overview || []

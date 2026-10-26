@@ -1,12 +1,12 @@
 'use client'
 
+import {Box, chakra, Spinner} from '@chakra-ui/react'
+import {zodResolver} from '@hookform/resolvers/zod'
+import {postToCms} from '@platform/core/cms-auth'
+import type {ContactFormData} from '@platform/core/types/theme-ui'
 import {Alert, TextField} from '@platform/themes/legal-finance/form-ui'
 import {MotionCard} from '@platform/themes/legal-finance/motion'
 import {Button, Col, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {postToCms} from '@platform/core/cms-auth'
-import type {FahaaContactFormData} from '@platform/core/types/themes/legal-finance'
-import {Box, chakra, Spinner} from '@chakra-ui/react'
-import {zodResolver} from '@hookform/resolvers/zod'
 import {useState} from 'react'
 import {Controller, useForm} from 'react-hook-form'
 import {z} from 'zod'
@@ -24,13 +24,7 @@ type Values = z.infer<typeof schema>
 
 const EMPTY: Values = {firstName: '', lastName: '', email: '', phone: '', subject: '', message: ''}
 
-export function FahaaContactForm({
-  form,
-  showCard = true
-}: {
-  form: FahaaContactFormData
-  showCard?: boolean
-}) {
+export function ContactForm({form, showCard = true}: {form: ContactFormData; showCard?: boolean}) {
   const [sending, setSending] = useState(false)
   const [result, setResult] = useState<{ok: boolean; text: string} | null>(null)
   const {
@@ -65,7 +59,7 @@ export function FahaaContactForm({
       type?: 'email' | 'tel'
       rows?: number
       placeholder?: string
-      options?: FahaaContactFormData['subjects']
+      options?: ContactFormData['subjects']
     } = {}
   ) => (
     <Controller

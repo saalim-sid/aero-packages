@@ -1,5 +1,6 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {MediaSection} from '@platform/core/types/sections'
@@ -7,7 +8,6 @@ import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {frame} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {Button, Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box, chakra} from '@chakra-ui/react'
 
 const embed = (url = '') => {
   const id = /(?:v=|youtu\.be\/|embed\/)([\w-]{11})/.exec(url)?.[1]

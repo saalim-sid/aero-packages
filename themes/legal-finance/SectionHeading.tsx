@@ -3,9 +3,9 @@
 import {useEditable} from '@platform/builder/editable-context'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {T} from '@platform/themes/legal-finance/ui'
-import type {FahaaSectionHeadingData} from '@platform/core/types/themes/legal-finance'
+import type {SectionHeadingData} from '@platform/core/types/theme-ui'
 
-export function SectionHeading({title, lede}: FahaaSectionHeadingData) {
+export function SectionHeading({title, lede}: SectionHeadingData) {
   const ed = useEditable()
   return (
     <MotionBox

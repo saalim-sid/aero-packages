@@ -17,7 +17,6 @@ export const themes: Record<string, ThemeEntry> = {
   }
 }
 
-/** The theme's own renderer for a contract section, or undefined for any other component type. */
 export function themeSection(
   key: string | null | undefined,
   componentType: string | undefined

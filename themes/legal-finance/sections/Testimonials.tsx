@@ -1,5 +1,6 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {TestimonialsSection} from '@platform/core/types/sections'
@@ -9,7 +10,6 @@ import {frame} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {StatsBand} from '@platform/themes/legal-finance/sections/Stats'
 import {Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box, chakra} from '@chakra-ui/react'
 import {AnimatePresence} from 'framer-motion'
 import {useState, useSyncExternalStore} from 'react'
 

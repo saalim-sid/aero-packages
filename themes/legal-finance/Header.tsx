@@ -3,14 +3,14 @@
 import {Logo} from '@platform/themes/legal-finance/Logo'
 import {Button, Container, Icon, T} from '@platform/themes/legal-finance/ui'
 import type {HeaderProps} from '@platform/core/types/platform'
-import type {FahaaHeaderData} from '@platform/core/types/themes/legal-finance'
+import type {SiteHeaderData} from '@platform/core/types/theme-ui'
 import {Box, chakra} from '@chakra-ui/react'
 import NextLink from 'next/link'
 import {usePathname} from 'next/navigation'
 import {useState} from 'react'
 
-export function FahaaHeader({cmsData}: HeaderProps) {
-  const data = (cmsData || {}) as FahaaHeaderData
+export function Header({cmsData}: HeaderProps) {
+  const data = (cmsData || {}) as SiteHeaderData
   const nav = data.primaryNav || []
   const cta = data.cta
   const [open, setOpen] = useState(false)

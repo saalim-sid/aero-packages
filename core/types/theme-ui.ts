@@ -1,27 +1,24 @@
-export interface FahaaLink {
-  label: string
-  href: string
+import type {Link} from '@platform/core/types/sections'
+
+export interface SiteHeaderData {
+  primaryNav?: Link[]
+  cta?: Link
 }
 
-export interface FahaaHeaderData {
-  primaryNav?: FahaaLink[]
-  cta?: FahaaLink
-}
-
-export interface FahaaFooterData {
+export interface SiteFooterData {
   tagline?: string
   phone?: string
   email?: string
   addressLines?: string[]
   quickLinksTitle?: string
-  quickLinks?: FahaaLink[]
-  columns?: Array<{title: string; items: FahaaLink[]}>
+  quickLinks?: Link[]
+  columns?: Array<{title: string; items: Link[]}>
   socials?: Array<{platform: 'facebook' | 'twitter' | 'linkedin' | 'instagram'; href: string}>
-  legalLinks?: FahaaLink[]
+  legalLinks?: Link[]
   copyright?: string
 }
 
-export interface FahaaContactFormData {
+export interface ContactFormData {
   title: string
   subjects: Array<{value: string; label: string}>
   submitLabel: string
@@ -30,13 +27,7 @@ export interface FahaaContactFormData {
   successMessage: string
 }
 
-export interface FahaaPageHeaderData {
-  title: string
-  lede: string
-  ledeWidth?: number
-}
-
-export interface FahaaQueryFormData {
+export interface QuestionFormData {
   title: string
   typeLabel: string
   types: Array<{value: string; label: string}>
@@ -47,12 +38,29 @@ export interface FahaaQueryFormData {
   successMessage: string
 }
 
-export type FahaaIconName =
-  keyof typeof import('@platform/themes/legal-finance/icon-paths').ICON_PATHS
+export interface PageHeaderData {
+  title: string
+  lede: string
+  ledeWidth?: number
+}
 
-export type FahaaBreakpoints = 'sm' | 'md' | 'lg'
+export interface SectionHeadingData {
+  title: string
+  lede: string
+}
 
-export interface FahaaTextProps {
+export type IconName = keyof typeof import('@platform/themes/legal-finance/icon-paths').ICON_PATHS
+
+export type IconSize = 'xs' | 'sm' | 'md' | 'lg' | 'alert'
+
+export type Breakpoint = 'sm' | 'md' | 'lg'
+
+export interface IconProps {
+  name: IconName
+  size?: IconSize
+}
+
+export interface TextProps {
   variant:
     | 'h1'
     | 'h2'
@@ -69,14 +77,7 @@ export interface FahaaTextProps {
   children?: React.ReactNode
 }
 
-export type FahaaIconSize = 'xs' | 'sm' | 'md' | 'lg' | 'alert'
-
-export interface FahaaIconProps {
-  name: FahaaIconName
-  size?: FahaaIconSize
-}
-
-export interface FahaaColProps {
+export interface ColProps {
   xs?: number
   sm?: number
   md?: number
@@ -84,7 +85,7 @@ export interface FahaaColProps {
   children?: React.ReactNode
 }
 
-export interface FahaaButtonProps {
+export interface ButtonProps {
   variant?: 'text' | 'contained' | 'outlined'
   size?: 'small' | 'medium' | 'large'
   href?: string
@@ -96,7 +97,7 @@ export interface FahaaButtonProps {
   children?: React.ReactNode
 }
 
-export interface FahaaFieldProps {
+export interface TextFieldProps {
   label: string
   name: string
   value: string
@@ -110,7 +111,7 @@ export interface FahaaFieldProps {
   options?: Array<{value: string; label: string}>
 }
 
-export interface FahaaRadioGroupProps {
+export interface RadioGroupProps {
   label: string
   name: string
   value: string
@@ -119,13 +120,8 @@ export interface FahaaRadioGroupProps {
   error?: string
 }
 
-export interface FahaaAlertProps {
+export interface AlertProps {
   severity: 'info' | 'success' | 'error'
   mt?: string
   children: React.ReactNode
-}
-
-export interface FahaaSectionHeadingData {
-  title: string
-  lede: string
 }

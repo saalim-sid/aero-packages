@@ -1,15 +1,11 @@
 'use client'
 
-import {Icon} from '@platform/themes/legal-finance/ui'
-import type {
-  FahaaAlertProps,
-  FahaaFieldProps,
-  FahaaRadioGroupProps
-} from '@platform/core/types/themes/legal-finance'
 import {Box, chakra} from '@chakra-ui/react'
+import type {AlertProps, RadioGroupProps, TextFieldProps} from '@platform/core/types/theme-ui'
+import {ALERT_ICONS, ICON_PATHS} from '@platform/themes/legal-finance/icon-paths'
+import {Icon} from '@platform/themes/legal-finance/ui'
 import {useId, useState} from 'react'
 
-// MUI outlined input geometry (not on the spacing scale): 16.5px top/bottom, 14px sides, 56px tall.
 const FIELD_PADDING = '16.5px 14px'
 const SELECT_PADDING = '16.5px 32px 16.5px 14px'
 
@@ -27,7 +23,6 @@ const control = {
   outline: '0'
 } as const
 
-/** MUI outlined TextField: floating label, notched border, 8px corners. */
 export function TextField({
   label,
   value,
@@ -40,7 +35,7 @@ export function TextField({
   rows,
   placeholder,
   options
-}: FahaaFieldProps) {
+}: TextFieldProps) {
   const id = useId()
   const [focused, setFocused] = useState(false)
   const shrink = focused || value !== ''
@@ -219,13 +214,7 @@ export function TextField({
   )
 }
 
-const RADIO_RING =
-  'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'
-const RADIO_DOT =
-  'M8.465 8.465C9.37 7.56 10.62 7 12 7C14.76 7 17 9.24 17 12C17 13.38 16.44 14.63 15.535 15.535C14.63 16.44 13.38 17 12 17C9.24 17 7 14.76 7 12C7 10.62 7.56 9.37 8.465 8.465Z'
-
-/** MUI RadioGroup (row) with its legend, 42px radio hit areas and body1 labels. */
-export function RadioGroup({label, name, value, onChange, options, error}: FahaaRadioGroupProps) {
+export function RadioGroup({label, name, value, onChange, options, error}: RadioGroupProps) {
   return (
     <chakra.fieldset
       display="inline-flex"
@@ -289,7 +278,7 @@ export function RadioGroup({label, name, value, onChange, options, error}: Fahaa
                     fill="currentColor"
                     aria-hidden="true"
                   >
-                    <path d={RADIO_RING} />
+                    <path d={ICON_PATHS.radioRing[0]} />
                   </chakra.svg>
                   <chakra.svg
                     viewBox="0 0 24 24"
@@ -302,7 +291,7 @@ export function RadioGroup({label, name, value, onChange, options, error}: Fahaa
                     transitionProperty="transform"
                     transitionDuration="150ms"
                   >
-                    <path d={RADIO_DOT} />
+                    <path d={ICON_PATHS.radioDot[0]} />
                   </chakra.svg>
                 </Box>
               </Box>
@@ -322,14 +311,7 @@ export function RadioGroup({label, name, value, onChange, options, error}: Fahaa
   )
 }
 
-const ALERT_ICON = {
-  info: 'infoOutlined',
-  success: 'checkCircleOutline',
-  error: 'errorOutline'
-} as const
-
-/** MUI standard Alert: tinted box, outlined icon, body2 text. */
-export function Alert({severity, children, mt}: FahaaAlertProps) {
+export function Alert({severity, children, mt}: AlertProps) {
   return (
     <Box
       role="alert"
@@ -344,7 +326,7 @@ export function Alert({severity, children, mt}: FahaaAlertProps) {
       fontFamily="body"
     >
       <Box display="flex" mr="3" py="7px" opacity={0.9} color={`alert.${severity}.icon`}>
-        <Icon name={ALERT_ICON[severity]} size="alert" />
+        <Icon name={ALERT_ICONS[severity]} size="alert" />
       </Box>
       <Box py="2" minW="0" overflow="auto">
         {children}

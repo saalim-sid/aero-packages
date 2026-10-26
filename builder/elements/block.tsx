@@ -3,7 +3,6 @@ import {withCommon} from '@platform/builder/fields'
 import type {CmsComponent} from '@platform/core/types/cms'
 import type {ElementDef} from '@platform/core/types/layout'
 
-/** A website's own block type (hero, pillars...): its settings are the block's content. */
 export const blockElement: ElementDef = {
   type: 'block',
   name: 'Website block',
@@ -21,7 +20,6 @@ export const blockElement: ElementDef = {
   }
 }
 
-/** A component from the Components list, linked: editing it there updates every page using it. */
 export const componentElement: ElementDef = {
   type: 'component',
   name: 'Component',

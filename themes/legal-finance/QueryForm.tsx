@@ -4,7 +4,7 @@ import {Alert, RadioGroup, TextField} from '@platform/themes/legal-finance/form-
 import {MotionCard} from '@platform/themes/legal-finance/motion'
 import {Button, Col, Icon, Row, T} from '@platform/themes/legal-finance/ui'
 import {postToCms} from '@platform/core/cms-auth'
-import type {FahaaQueryFormData} from '@platform/core/types/themes/legal-finance'
+import type {QuestionFormData} from '@platform/core/types/theme-ui'
 import {Box, chakra, Spinner} from '@chakra-ui/react'
 import {zodResolver} from '@hookform/resolvers/zod'
 import {useState} from 'react'
@@ -21,7 +21,7 @@ const schema = z.object({
 
 type Values = z.infer<typeof schema>
 
-export function FahaaQueryForm({form}: {form: FahaaQueryFormData}) {
+export function QuestionForm({form}: {form: QuestionFormData}) {
   const initial: Values = {
     name: '',
     email: '',

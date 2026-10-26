@@ -1,14 +1,13 @@
 'use client'
 
+import {Box} from '@chakra-ui/react'
 import {useEditable} from '@platform/builder/editable-context'
 import type {Stat, StatsSection} from '@platform/core/types/sections'
 import {MotionBox} from '@platform/themes/legal-finance/motion'
 import {frame} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {Col, Container, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box} from '@chakra-ui/react'
 
-/** The rounded stats band, also used under testimonials. */
 export function StatsBand({items, mt, path}: {items: Stat[]; mt?: string; path: string}) {
   const ed = useEditable()
   return (

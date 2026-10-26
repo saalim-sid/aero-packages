@@ -6,7 +6,6 @@ import {themeSection} from '@platform/themes'
 import {ComponentView} from '@platform/ui/cms/ComponentView'
 import {PageHero} from '@platform/ui/PageHero'
 
-/** Order: the site's own block, then the theme's section, then the shared and plugin components. */
 export function CmsComponentRenderer({
   component,
   theme
@@ -32,7 +31,6 @@ export async function CmsLayout({page}: CmsLayoutProps) {
   )
 }
 
-/** Standard CMS page: its hero, then its content (e.g. /about, /mission). */
 export function CmsPageView({page}: {page: CmsPageData}) {
   return (
     <>

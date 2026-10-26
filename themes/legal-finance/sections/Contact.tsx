@@ -1,5 +1,6 @@
 'use client'
 
+import {Box} from '@chakra-ui/react'
 import {useEditable} from '@platform/builder/editable-context'
 import type {ContactSection} from '@platform/core/types/sections'
 import {MotionBox, MotionCard} from '@platform/themes/legal-finance/motion'
@@ -7,7 +8,6 @@ import {TheForm} from '@platform/themes/legal-finance/sections/Form'
 import {frame, icon} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box} from '@chakra-ui/react'
 
 export function Contact({component: c}: {component: ContactSection}) {
   const ed = useEditable()

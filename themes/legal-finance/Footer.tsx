@@ -3,7 +3,7 @@
 import {Logo} from '@platform/themes/legal-finance/Logo'
 import {Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
 import type {FooterProps} from '@platform/core/types/platform'
-import type {FahaaFooterData} from '@platform/core/types/themes/legal-finance'
+import type {SiteFooterData} from '@platform/core/types/theme-ui'
 import {Box, chakra} from '@chakra-ui/react'
 import NextLink from 'next/link'
 import {Fragment} from 'react'
@@ -17,8 +17,8 @@ const SOCIAL_LABEL = {
 
 const LINK_COL = 8 / 3
 
-export function FahaaFooter({cmsData}: FooterProps) {
-  const data = (cmsData || {}) as FahaaFooterData
+export function Footer({cmsData}: FooterProps) {
+  const data = (cmsData || {}) as SiteFooterData
   const year = new Date().getFullYear()
 
   return (

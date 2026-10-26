@@ -1,5 +1,6 @@
 'use client'
 
+import {Box, chakra} from '@chakra-ui/react'
 import {EditableText} from '@platform/builder/Editable'
 import {useEditable} from '@platform/builder/editable-context'
 import type {TabsSection} from '@platform/core/types/sections'
@@ -8,7 +9,6 @@ import {CtaPanel} from '@platform/themes/legal-finance/sections/Cta'
 import {frame, icon} from '@platform/themes/legal-finance/sections/frame'
 import {Heading} from '@platform/themes/legal-finance/sections/Heading'
 import {Button, Col, Container, Icon, Row, T} from '@platform/themes/legal-finance/ui'
-import {Box, chakra} from '@chakra-ui/react'
 import {useLayoutEffect, useRef, useState} from 'react'
 
 export function Tabs({component: c}: {component: TabsSection}) {
