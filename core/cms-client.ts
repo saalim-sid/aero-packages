@@ -68,13 +68,16 @@ export function resolveCmsImageUrl(image?: any, fallback?: string): string | und
 const CMS_API_URL = process.env.NEXT_PUBLIC_CMS_API_URL || ''
 const CMS_API_KEY = process.env.CMS_API_KEY || ''
 
-if (typeof window === 'undefined' && (!CMS_API_URL || !CMS_API_KEY)) {
-  console.error(
-    '[CMS Client] NEXT_PUBLIC_CMS_API_URL or CMS_API_KEY is not set: every page will be empty (404).'
-  )
-}
+// Said once, when a website actually fetches: the CMS imports this file only for image links.
+let warned = false
 
 export async function cmsGet(url: string, init: RequestInit, attempt = 1): Promise<Response> {
+  if (!warned && typeof window === 'undefined' && (!CMS_API_URL || !CMS_API_KEY)) {
+    warned = true
+    console.error(
+      '[CMS Client] NEXT_PUBLIC_CMS_API_URL or CMS_API_KEY is not set: every page will be empty (404).'
+    )
+  }
   try {
     const res = await fetch(url, {...init, signal: init.signal ?? AbortSignal.timeout(10_000)})
     if (!res.ok && res.status !== 404) {

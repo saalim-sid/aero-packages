@@ -10,7 +10,11 @@
     "react-dom": "^19.2.0"
   },
   "dependencies": {
-    "lucide-react": "^0.510.0"
+    "@hookform/resolvers": "^5.9.2",
+    "framer-motion": "^11.18.2",
+    "lucide-react": "^0.510.0",
+    "react-hook-form": "^7.91.0",
+    "zod": "^4.6.7"
   },
   "files": [
     "core",

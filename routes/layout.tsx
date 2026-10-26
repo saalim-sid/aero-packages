@@ -13,6 +13,7 @@ import {
 import {IS_PRODUCTION_SITE, SITE_URL} from '@platform/core/site'
 import {sectionsFor, site} from '@platform/core/site-config'
 import type {OrgConfig} from '@platform/core/types/cms'
+import {themeChrome} from '@platform/themes/chrome'
 import {CookieConsent} from '@platform/ui/CookieConsent'
 import {PromotionBanner} from '@platform/ui/PromotionBanner'
 import {SiteFooter} from '@platform/ui/layout/SiteFooter'
@@ -114,8 +115,9 @@ export async function PlatformLayout({
     : undefined
   const jsonLd = org ? orgJsonLd(org) : null
   const hasSession = (await cookies()).has(SESSION_COOKIE)
-  const Header = site.components?.Header || SiteHeader
-  const Footer = site.components?.Footer || SiteFooter
+  const chrome = themeChrome[theme ?? site.theme ?? '']
+  const Header = site.components?.Header || chrome?.Header || SiteHeader
+  const Footer = site.components?.Footer || chrome?.Footer || SiteFooter
 
   return (
     <html lang="en" className={fontClassName} suppressHydrationWarning>

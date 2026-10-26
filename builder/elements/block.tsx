@@ -1,5 +1,6 @@
-import type {CmsComponent} from '@platform/core/types/cms'
+import {EditableScope} from '@platform/builder/Editable'
 import {withCommon} from '@platform/builder/fields'
+import type {CmsComponent} from '@platform/core/types/cms'
 import type {ElementDef} from '@platform/core/types/layout'
 
 /** A website's own block type (hero, pillars...): its settings are the block's content. */
@@ -10,11 +11,14 @@ export const blockElement: ElementDef = {
   icon: 'LayoutTemplate',
   hidden: true,
   fields: [],
-  render: ({node, settings, attrs, renderBlock}) => (
-    <div {...attrs} className={`${attrs.className} lb-el`}>
-      {renderBlock?.({...settings, _id: node.id} as CmsComponent)}
-    </div>
-  )
+  render: ({node, settings, attrs, renderBlock, editing, editable}) => {
+    const content = renderBlock?.({...settings, _id: node.id} as CmsComponent)
+    return (
+      <div {...attrs} className={`${attrs.className} lb-el`}>
+        {editing ? <EditableScope editable={editable}>{content}</EditableScope> : content}
+      </div>
+    )
+  }
 }
 
 /** A component from the Components list, linked: editing it there updates every page using it. */

@@ -67,6 +67,7 @@ export interface FooterProps {
 
 export interface SiteConfig {
   meta: SiteMeta
+  theme?: string
   plugins: PlatformPlugin[]
   blocks?: Record<string, BlockComponent>
   components?: {Header?: ComponentType<HeaderProps>; Footer?: ComponentType<FooterProps>}

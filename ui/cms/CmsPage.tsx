@@ -1,24 +1,35 @@
 import {LayoutView} from '@platform/builder/LayoutView'
-import {resolveCmsImageUrl} from '@platform/core/cms-client'
-import {siteBlocks} from '@platform/core/site-config'
+import {getCmsTheme, resolveCmsImageUrl} from '@platform/core/cms-client'
+import {site, siteBlocks} from '@platform/core/site-config'
 import type {CmsComponent, CmsLayoutProps, CmsPageData} from '@platform/core/types/cms'
+import {themeSection} from '@platform/themes'
 import {ComponentView} from '@platform/ui/cms/ComponentView'
 import {PageHero} from '@platform/ui/PageHero'
 
-export function CmsComponentRenderer({component}: {component: CmsComponent}) {
-  const Block = siteBlocks[component.componentType ?? '']
+/** Order: the site's own block, then the theme's section, then the shared and plugin components. */
+export function CmsComponentRenderer({
+  component,
+  theme
+}: {
+  component: CmsComponent
+  theme?: string | null
+}) {
+  const Block =
+    siteBlocks[component.componentType ?? ''] || themeSection(theme, component.componentType)
   return Block ? <Block component={component} /> : <ComponentView component={component} />
 }
 
 /** The page's content, as built in the page builder. */
-export function CmsLayout({page}: CmsLayoutProps) {
-  return page?.layout?.length ? (
+export async function CmsLayout({page}: CmsLayoutProps) {
+  if (!page?.layout?.length) return null
+  const theme = (await getCmsTheme()) ?? site.theme
+  return (
     <LayoutView
       nodes={page.layout}
-      renderBlock={(c) => <CmsComponentRenderer component={c} />}
+      renderBlock={(c) => <CmsComponentRenderer component={c} theme={theme} />}
       resolveUrl={resolveCmsImageUrl}
     />
-  ) : null
+  )
 }
 
 /** Standard CMS page: its hero, then its content (e.g. /about, /mission). */

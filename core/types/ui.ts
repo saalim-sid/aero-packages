@@ -42,4 +42,5 @@ export interface PageHeroProps {
 export interface FaqItem {
   question: string
   answer: string
+  category?: string
 }

@@ -40,6 +40,8 @@ export interface FieldOption {
   label: string
 }
 
+export type FieldChoices = Record<string, string[]>
+
 /** Shows a field only while another field matches. */
 export interface FieldCondition {
   field: string
@@ -81,12 +83,15 @@ export interface ElementRenderProps {
   /** Draws a website block (a CMS component type); each app brings its own renderer. */
   renderBlock?: (component: CmsComponent) => ReactNode
   /** Spread on the tag holding a text setting: in the editor it becomes typeable in place. */
-  editable: (field: string, kind?: 'line' | 'text' | 'rich') => EditableAttrs
+  editable: EditableFn
   /** An image or file link as this app serves it. */
   url: (value: string) => string
   /** HTML from a setting, cleaned the way the CMS cleans it when saving. */
   html: (value: string) => string
 }
+
+/** `field` is a setting name, or a dotted path into it (items.0.title). */
+export type EditableFn = (field: string, kind?: 'line' | 'text' | 'rich') => EditableAttrs
 
 export interface EditableAttrs {
   contentEditable?: boolean

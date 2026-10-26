@@ -1,5 +1,7 @@
 import type {SystemConfig} from '@chakra-ui/react'
-import type {ReactNode} from 'react'
+import type {FooterProps, HeaderProps} from '@platform/core/types/platform'
+import type {SectionMap, SectionType} from '@platform/core/types/sections'
+import type {ComponentType, ReactNode} from 'react'
 
 type Token = {value: string}
 
@@ -39,11 +41,21 @@ export interface SiteTheme {
   extend?: SystemConfig
 }
 
-/** One choosable theme. A new theme is one file in themes/ plus one line in the registry. */
+export type SectionComponents = {
+  [K in SectionType]: ComponentType<{component: SectionMap[K] & {_id: string}}>
+}
+
+/** One choosable theme: its tokens, and for a full design every contract section. A new theme is one folder in themes/ plus one line in the registry. */
 export interface ThemeEntry {
   label: string
   category: string
   theme: SiteTheme
+  sections?: SectionComponents
+}
+
+export interface ThemeChrome {
+  Header: ComponentType<HeaderProps>
+  Footer: ComponentType<FooterProps>
 }
 
 export interface ProviderProps {
